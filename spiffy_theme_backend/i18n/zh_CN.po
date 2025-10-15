@@ -1,0 +1,2310 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spiffy_theme_backend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-15 06:02+0000\n"
+"PO-Revision-Date: 2025-07-15 06:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid "%(browser)s on %(platform)s"
+msgstr "%(browser)s在%(platform)s"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.service_worker
+msgid ""
+"'use strict';\n"
+"        var base_cache_ver = 'base-cache-1';\n"
+"        var assets = ['/','/pwa/offline'];\n"
+"        self.addEventListener('install', function(event) {\n"
+"            self.skipWaiting();\n"
+"            event.waitUntil(\n"
+"                caches.open(base_cache_ver).then(cache =&gt;{\n"
+"                    cache.addAll(assets);\n"
+"                })\n"
+"            )\n"
+"        });\n"
+"        self.addEventListener('activate', function(event) {\n"
+"            event.waitUntil(\n"
+"                caches.keys().then(function(keys) {\n"
+"                    return Promise.all(keys.map(function(key) {\n"
+"                        if (key !== base_cache_ver) {\n"
+"                            return caches.delete(key);\n"
+"                        }\n"
+"                    }));\n"
+"                })\n"
+"            );\n"
+"        });\n"
+"        self.addEventListener('fetch', function(event) {\n"
+"            event.respondWith(\n"
+"                fetch(event.request).then(function (response) {\n"
+"                    return response;\n"
+"                })\n"
+"                .catch(error =&gt; {\n"
+"                    return caches.match('/pwa/offline');\n"
+"            }));\n"
+"        });"
+msgstr ""
+"'use strict';\n"
+"        var base_cache_ver = 'base-cache-1'; // 缓存版本号\n"
+"        var assets = ['/','/pwa/offline']; // 要缓存的资源列表\n"
+"        self.addEventListener('install', function(event) {\n"
+"            self.skipWaiting(); // 跳过等待，直接激活\n"
+"            event.waitUntil(\n"
+"                caches.open(base_cache_ver).then(cache =>{\n"
+"                    cache.addAll(assets); // 添加资源到缓存中\n"
+"                })\n"
+"            )\n"
+"        });\n"
+"        self.addEventListener('activate', function(event) {\n"
+"            event.waitUntil(\n"
+"                caches.keys().then(function(keys) {\n"
+"                    return Promise.all(keys.map(function(key) {\n"
+"                        if (key !== base_cache_ver) {\n"
+"                            return caches.delete(key); // 删除旧版本缓存\n"
+"                        }\n"
+"                    }));\n"
+"                })\n"
+"            );\n"
+"        });\n"
+"        self.addEventListener('fetch', function(event) {\n"
+"            event.respondWith(\n"
+"                fetch(event.request).then(function (response) {\n"
+"                    return response; // 返回网络请求结果\n"
+"                })\n"
+"                .catch(error => {\n"
+"                    return caches.match('/pwa/offline'); // 请求失败时返回离线页面\n"
+"            }));\n"
+"        });"
+
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<b>Body Image</b>"
+msgstr "<b>身体形象</b>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<b>Header Background Image</b>"
+msgstr "标题背景图片"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"font_large text-style-design\">Large</span>"
+msgstr "<span class=\"font_large text-style-design\">大的</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"font_medium text-style-design\">Medium</span>"
+msgstr "<span class=\"font_medium text-style-design\">中等的</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"font_small text-style-design\">Small</span>"
+msgstr "<span class=\"font_small text-style-design\">小的</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid ""
+"<span class=\"ri ri-add-line\"/>\n"
+"\t\t\t\t\t<span class=\"text d-none\">CLOSE</span>"
+msgstr ""
+"<span class=\"ri ri-add-line\"/>\n"
+"\t\t\t\t\t<span class=\"text d-none\">关闭</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_content_template
+msgid ""
+"<span class=\"ri ri-delete-bin-line align-middle\"/>\n"
+"\t\t\t\t\t\t\t\t\t\t<span class=\"ps-2 edit-note-text\">Delete Note</span>"
+msgstr ""
+"<span class=\"ri ri-delete-bin-line align-middle\"/>\n"
+"\t\t\t\t\t\t\t\t\t\t<span class=\"ps-2 edit-note-text\">删除注释</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_content_template
+msgid ""
+"<span class=\"ri ri-pencil-line align-middle\"/>\n"
+"\t\t\t\t\t\t\t\t\t\t<span class=\"ps-2 edit-note-text\">Edit Note</span>"
+msgstr ""
+" <span class=\"ri ri-pencil-line align-middle\"/>\n "
+"\t\t\t\t\t\t\t\t\t\t<span class=\"ps-2 edit-note-text\">编辑笔记</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"text-style-design\">BounceIn</span>"
+msgstr "<span class=\"text-style-design\">弹跳</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"text-style-design\">Fade</span>"
+msgstr "<span class=\"text-style-design\">褪色</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"text-style-design\">Shrink</span>"
+msgstr "<span class=\"text-style-design\">收缩</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "<span class=\"text-style-design\">Vertical Flip</span>"
+msgstr "<span class=\"text-style-design\">垂直翻转</span>"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid "<span>Notes</span>"
+msgstr "<span>注释</span>"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/action_service.js:0
+msgid ""
+"A popup window has been blocked. You may need to change your browser "
+"settings to allow popup windows for this page."
+msgstr "Odoo的弹出窗口已被浏览器阻止弹出。您需要更改浏览器的设置选项以便允许本页的弹出窗口。"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__action_id
+msgid "Action"
+msgstr "行动"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__actionId
+msgid "Action ID"
+msgstr "动作ID"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Active"
+msgstr "积极的"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Activities"
+msgstr "活动"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Add"
+msgstr "添加"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Add Bookmark"
+msgstr "添加书签"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Add Google Font"
+msgstr "添加谷歌字体"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__show_bg_image
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__show_bg_image
+msgid "Add Login Background Image"
+msgstr "添加登录背景图片"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/list_renderer.xml:0
+msgid "Advanced Filter"
+msgstr "高级过滤器"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "All"
+msgstr "全部"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__almarai
+msgid "Almarai"
+msgstr "阿尔马莱"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__mail_firebase_tokens
+msgid "Android device(tokens)"
+msgstr "安卓设备（令牌）"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__app_actionid
+msgid "App Action Id"
+msgstr "应用程序操作 ID"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__description_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__description_pwa
+msgid "App Description"
+msgstr "应用说明"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "App Drawer"
+msgstr "应用程序抽屉"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__appdrawer_custom_bg_color
+msgid "App Drawer Custom Background Color"
+msgstr "应用程序抽屉自定义背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__appdrawer_custom_text_color
+msgid "App Drawer Custom Text Color"
+msgstr "应用程序抽屉自定义文本颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__header_vertical_mini_bg_color
+msgid "App Header Custom BG Color"
+msgstr "应用程序标题自定义背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__header_vertical_mini_text_color
+msgid "App Header Custom Text Color"
+msgstr "应用程序标题自定义文本颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__app_id
+msgid "App Id"
+msgstr "应用程序 ID"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__app_name_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__app_name_pwa
+msgid "App Name"
+msgstr "应用程序名称"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__start_url_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__start_url_pwa
+msgid "App Start Url"
+msgstr "应用程序启动网址"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__app_xmlid
+msgid "App XML Id"
+msgstr "应用程序 XML ID"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Apply"
+msgstr "申请"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Apply Background Image"
+msgstr "应用背景图片"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Apply Menu Shape Style"
+msgstr "应用菜单形状样式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__apply_menu_shape_style
+msgid "Apply Menu Shape Style"
+msgstr "应用菜单形状样式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__apply_light_bg_img
+msgid "Apply light bg image"
+msgstr "应用浅色背景图像"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__prevent_auto_save_warning
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__prevent_auto_save_warning
+msgid "Auto Save Warning"
+msgstr "自动保存警告"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/form_statusbar.xml:0
+msgid "Autosave is disabled, Click on save button."
+msgstr "自动保存已禁用，请单击保存按钮。"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.action_backend_config
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__config_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__backend_theme_config
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.backend_config_form_view
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.backend_config_list_view
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.push_notifcation_list_view
+msgid "Backend Config"
+msgstr "后端配置"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Backend Settings"
+msgstr "后端设置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__spiffy_favicon
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__spiffy_favicon
+msgid "Backend Tab Favicon"
+msgstr "后端选项卡图标"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__tab_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__tab_name
+msgid "Backend Tab Name"
+msgstr "后端选项卡名称"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__backend_theme_level
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__backend_theme_level
+msgid "Backend Theme Level"
+msgstr "后端主题级别"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__background_color_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__background_color_pwa
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Background Color"
+msgstr "背景颜色"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Background Color Opacity"
+msgstr "背景颜色不透明度"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__light_bg_image
+msgid "Background Image For light"
+msgstr "光的背景图像"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__menu_bg_image
+msgid "Background Image For menu"
+msgstr "菜单背景图片"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__top_menu_custom_bg_vertical_mini_2
+msgid "Background Image For vertical menu"
+msgstr "垂直菜单的背景图像"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__vertical_mini_bg_image_four
+msgid "Background Image Four"
+msgstr "背景图四"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__vertical_mini_bg_image_one
+msgid "Background Image One"
+msgstr "背景图一"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__vertical_mini_bg_image_three
+msgid "Background Image Three"
+msgstr "背景图三"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__vertical_mini_bg_image_two
+msgid "Background Image Two"
+msgstr "背景图二"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_body_bg_color
+msgid "Body Background Color for dark"
+msgstr "深色模式下的背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_body_text_color
+msgid "Body Text Color for dark"
+msgstr "深色模式下的文字颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_bookmark_link
+msgid "Bookmark Link"
+msgstr "书签链接"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__bookmark_ids
+msgid "Bookmark Links"
+msgstr "书签链接"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Bookmark Panel"
+msgstr "书签面板"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Border Bottom"
+msgstr "底部边框"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__input_style__input_bordered
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Bordered"
+msgstr "有边框"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__input_style__input_borderless
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Borderless"
+msgstr "无边框"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__input_style__input_bottom_border
+msgid "Bottom Border"
+msgstr "底部边框"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__cairo
+msgid "Cairo"
+msgstr "开罗"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/bookmark.xml:0
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Cancel"
+msgstr "取消"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__chatter_position__chatter_bottom
+msgid "Chatter Bottom"
+msgstr "聊天框底部"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__chatter_position
+msgid "Chatter Position"
+msgstr "聊天框位置"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__chatter_position__chatter_right
+msgid "Chatter Right"
+msgstr "聊天框右侧"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__checkbox__checkbox_style_1
+msgid "Checkbox Style 1"
+msgstr "复选框样式 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__checkbox__checkbox_style_2
+msgid "Checkbox Style 2"
+msgstr "复选框样式 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__checkbox__checkbox_style_3
+msgid "Checkbox Style 3"
+msgstr "复选框样式 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__checkbox__checkbox_style_4
+msgid "Checkbox Style 4"
+msgstr "复选框样式 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__checkbox
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Checkbox Styles"
+msgstr "复选框样式"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Choose your loader"
+msgstr "选择加载器"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Circle"
+msgstr "圆形"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__shape_style__biz_shape_circle
+msgid "Circle Shape"
+msgstr "圆形样式"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/split_view/split_view_form.xml:0
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Close"
+msgstr "关闭"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Close menu"
+msgstr "关闭菜单"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Color Combinations"
+msgstr "颜色组合"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_1
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_1
+msgid "Color Pallet 1"
+msgstr "调色板 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_10
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_10
+msgid "Color Pallet 10"
+msgstr "调色板 10"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_11
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_11
+msgid "Color Pallet 11"
+msgstr "调色板 11"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_12
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_12
+msgid "Color Pallet 12"
+msgstr "调色板 12"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_13
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_13
+msgid "Color Pallet 13"
+msgstr "调色板 13"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_14
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_14
+msgid "Color Pallet 14"
+msgstr "调色板 14"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_15
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_15
+msgid "Color Pallet 15"
+msgstr "调色板 15"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_16
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_16
+msgid "Color Pallet 16"
+msgstr "调色板 16"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_17
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_17
+msgid "Color Pallet 17"
+msgstr "调色板 17"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_18
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_18
+msgid "Color Pallet 18"
+msgstr "调色板 18"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_19
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_19
+msgid "Color Pallet 19"
+msgstr "调色板 19"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_2
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_2
+msgid "Color Pallet 2"
+msgstr "调色板 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_3
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_3
+msgid "Color Pallet 3"
+msgstr "调色板 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_4
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_4
+msgid "Color Pallet 4"
+msgstr "调色板 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_5
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_5
+msgid "Color Pallet 5"
+msgstr "调色板 5"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_6
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_6
+msgid "Color Pallet 6"
+msgstr "调色板 6"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_7
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_7
+msgid "Color Pallet 7"
+msgstr "调色板 7"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_8
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_8
+msgid "Color Pallet 8"
+msgstr "调色板 8"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__color_pallet__pallet_9
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__drawer_color_pallet__drawer_pallet_9
+msgid "Color Pallet 9"
+msgstr "调色板 9"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__color_pallet
+msgid "Color Pallets"
+msgstr "调色板"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Colors"
+msgstr "颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__list_view_density__list_comfortable
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Comfortable"
+msgstr "舒服的"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__list_view_density__list_compact
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Compact"
+msgstr "紧凑"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_res_company
+msgid "Companies"
+msgstr "公司"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Company"
+msgstr "公司"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设定"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_backend_config
+msgid "Configurator Backend Theme"
+msgstr "配置器后台主题"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+msgid "Create"
+msgstr "创建"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__create_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__create_uid
+msgid "Created by"
+msgstr "创建者"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__create_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_bg_vertical_mini_2__top_menu_vertical_bg4
+msgid "Custom Vertical BG"
+msgstr "自定义垂直背景"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Deactive"
+msgstr "未激活"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Debug"
+msgstr "调试"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__description
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__description
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Description"
+msgstr "描述"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__os
+msgid "Device OS"
+msgstr "设备操作系统"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__token
+msgid "Device firebase token"
+msgstr "设备 Firebase 令牌"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Discard"
+msgstr "放弃"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/split_view/split_view_form.xml:0
+msgid "Discard changes"
+msgstr "放弃更改"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_discuss_channel
+msgid "Discussion Channel"
+msgstr "讨论频道"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__display_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+#: code:addons/spiffy_theme_backend/static/src/xml/fileviewer.xml:0
+msgid "Download"
+msgstr "下载"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__drawer_color_pallet
+msgid "Drawer Color Pallets"
+msgstr "抽屉颜色托盘"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+msgid "Edit"
+msgstr "编辑"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Enable Backend Progressive Web Application"
+msgstr "启用后端渐进式 Web 应用程序"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__enable_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__enable_pwa
+msgid "Enable PWA"
+msgstr "启用 PWA"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__enable_todo_list
+msgid "Enable To Do List"
+msgstr "启用待办事项列表"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.menu_icon_change_list_view
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.view_spiffy_app_group_list
+msgid "Enter class name here.. (e.g. ri-class-name)"
+msgstr "在此处输入类名..（例如 ri-class-name）"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__menu_shape_bg_color
+msgid "Enterprise Menu BG Color"
+msgstr "企业菜单背景颜色"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+msgid "Expand/Collapse Groups"
+msgstr "展开/折叠组"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Explore on"
+msgstr "探索"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+msgid "Export All"
+msgstr "全部导出"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_favorite_apps
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__app_ids
+msgid "Favourite Apps"
+msgstr "最喜欢的应用程序"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Favourite Apps"
+msgstr "最喜欢的应用程序"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/list_view_renderer.js:0
+msgid "File Format Not Supported"
+msgstr "文件格式不受支持"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__firebase_key_file
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.view_company_form_inherit_firebase_key
+msgid "Firebase Key File"
+msgstr "Firebase 密钥文件"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__firebase_server_key
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__firebase_server_key
+msgid "Firebase key"
+msgstr "Firebase 密钥"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/models/mail_channel.py:0
+msgid "Firebase key file for spiffy app is missing from the configuration."
+msgstr "配置中缺少 spiffy 应用的 Firebase 密钥文件。"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__font_family
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font Family"
+msgstr "字体家族"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_size__font_medium
+msgid "Font Medium"
+msgstr "字体中等"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font Preview"
+msgstr "字体预览"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font Setting"
+msgstr "字体设置"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font Settings"
+msgstr "字体设置"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font Size"
+msgstr "字体大小"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_size__font_small
+msgid "Font Small"
+msgstr "字体小"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Font already exists in the list."
+msgstr "字体已存在于列表中。"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_size__font_large
+msgid "Font large"
+msgstr "字体大"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__font_size
+msgid "Font size"
+msgstr "字体大小"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__input_style
+msgid "Form View Mode"
+msgstr "表单查看模式"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "FullScreen"
+msgstr "全屏"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "General Settings"
+msgstr "常规设置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__global_field_ids
+msgid "Global Field"
+msgstr "全球领域"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__backend_theme_level__global_level
+msgid "Global Level"
+msgstr "全球层面"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.action_global_search_config
+#: model:ir.model,name:spiffy_theme_backend.model_global_search_bizople
+#: model:ir.ui.menu,name:spiffy_theme_backend.global_search_config_menuitem
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.global_search_config_form_view
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.global_search_config_list_view
+msgid "Global Search"
+msgstr "全球搜索"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__google_font_family
+msgid "Google Font Family"
+msgstr "谷歌字体系列"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_google_font_family
+msgid "Google Font Link"
+msgstr "谷歌字体链接"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__google_font_links_ids
+msgid "Google Font Links"
+msgstr "谷歌字体链接"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__group_icon_class_name
+msgid "Group Icon Class Name"
+msgstr "组图标类名称"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__group_menu_icon
+msgid "Group Menu Icon"
+msgstr "组菜单图标"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__group_menu_list_ids
+msgid "Group Menu List"
+msgstr "群组菜单列表"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_ir_http
+msgid "HTTP Routing"
+msgstr "HTTP 路由"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__id
+msgid "ID"
+msgstr "ID"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__icon_class_name
+msgid "Icon Class Name"
+msgstr "图标类名称"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Image"
+msgstr "图片"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__image_192_shortcut
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__image_192_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__image_192_pwa
+msgid "Image 192px"
+msgstr "图片 192px"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__image_512_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__image_512_pwa
+msgid "Image 512px"
+msgstr "图片 512px"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Input Style"
+msgstr "输入方式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__inter
+msgid "Inter"
+msgstr "国际米兰"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid "Invalid authentication code format."
+msgstr "验证码格式无效。"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__table_color
+msgid "Is Body Color"
+msgstr "是机身颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__is_selected
+msgid "Is Selected"
+msgstr "已选择"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__dark_mode
+msgid "Is dark Mode Active"
+msgstr "深色模式是否处于活动状态"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__josefin_sans
+msgid "Josefin Sans"
+msgstr "约瑟夫·桑斯"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Languages"
+msgstr "语言"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__write_date
+msgid "Last Updated On"
+msgstr "最后更新时间"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__write_uid
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__write_date
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__lato
+msgid "Lato"
+msgstr "拉托"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Light/Dark Mode"
+msgstr "明暗模式"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "List Comfortable"
+msgstr "列表舒适"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "List Compact"
+msgstr "列表紧凑"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__list_view_density
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "List View Density"
+msgstr "列表视图密度"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__list_view_sticky_header
+msgid "List view Sticky Header"
+msgstr "列表视图固定标题"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "List/Tree view Sticky Header and Footer"
+msgstr "列表/树视图粘性页眉和页脚"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_1
+msgid "Loader Style 1"
+msgstr "装载机风格 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_10
+msgid "Loader Style 10"
+msgstr "装载机风格 10"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_2
+msgid "Loader Style 2"
+msgstr "装载机风格 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_3
+msgid "Loader Style 3"
+msgstr "装载机风格 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_4
+msgid "Loader Style 4"
+msgstr "装载机风格 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_5
+msgid "Loader Style 5"
+msgstr "装载机风格 5"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_6
+msgid "Loader Style 6"
+msgstr "装载机风格 6"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_7
+msgid "Loader Style 7"
+msgstr "装载机风格 7"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_8
+msgid "Loader Style 8"
+msgstr "装载机风格 8"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__loader_style__loader_style_9
+msgid "Loader Style 9"
+msgstr "装载机风格 9"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__loader_style
+msgid "Loader Styles"
+msgstr "装载机样式"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Loaders"
+msgstr "装载机"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__login_page_background_color
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__login_page_background_color
+msgid "Login Background Color"
+msgstr "登录背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__login_page_background_img
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__login_page_background_img
+msgid "Login Background Image"
+msgstr "登录背景图片"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__login_page_style__login_style_1
+msgid "Login Style 1"
+msgstr "登录方式1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__login_page_style__login_style_2
+msgid "Login Style 2"
+msgstr "登录方式2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__login_page_style__login_style_3
+msgid "Login Style 3"
+msgstr "登录方式3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__login_page_style__login_style_4
+msgid "Login Style 4"
+msgstr "登录方式4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__login_page_style
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__login_page_style
+msgid "Login Styles"
+msgstr "登录方式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__login_page_text_color
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__login_page_text_color
+msgid "Login Text Color"
+msgstr "登录文字颜色"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Magnifier"
+msgstr "放大镜"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_mail_firebase
+msgid "Mail Firebase"
+msgstr "邮件 Firebase"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__manrope
+msgid "Manrope"
+msgstr "曼罗普"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Max 5 font families can be added."
+msgstr "最多可以添加 5 种字体系列。"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+#: model:ir.model,name:spiffy_theme_backend.model_ir_ui_menu
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__menu_id
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.menu_icon_change_list_view
+msgid "Menu"
+msgstr "菜单"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.change_menu_icon_action
+#: model:ir.ui.menu,name:spiffy_theme_backend.change_menu_icon_menu
+msgid "Menu Configuration"
+msgstr "菜单配置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__menuId
+msgid "Menu ID"
+msgstr "菜单ID"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__icon_img
+msgid "Menu New Image"
+msgstr "菜单新图片"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu Position"
+msgstr "菜单位置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__menu_shape_bg_color_opacity
+msgid "Menu Shape BG Color Opacity"
+msgstr "菜单形状背景颜色不透明度"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu Shape Background Color"
+msgstr "菜单形状背景颜色"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu Shape Style"
+msgstr "菜单形状样式"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu Vertical"
+msgstr "垂直菜单"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu Vertical 2"
+msgstr "垂直菜单 2"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Menu horizontal"
+msgstr "菜单水平"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__backend_menubar_logo
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__backend_menubar_logo
+msgid "Menubar Logo"
+msgstr "菜单栏标志"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__backend_menubar_logo_icon
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__backend_menubar_logo_icon
+msgid "Menubar Logo Icon"
+msgstr "菜单栏徽标图标"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__global_model_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_push_notification_menu__model_name
+msgid "Model"
+msgstr "模型"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__montserrat
+msgid "Montserrat"
+msgstr "蒙特塞拉特"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_biz_multi_tab
+msgid "Multi Tab"
+msgstr "多标签"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__multi_tab_ids
+msgid "Multi Tabs"
+msgstr "多标签"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_global_search_bizople__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__name
+msgid "Name"
+msgstr "姓名"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Next"
+msgstr "下一个"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "No Results Found!"
+msgstr "未找到结果！"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/action_service.js:0
+msgid "No view of type '%s' could be found in the current action."
+msgstr "在当前操作中找不到类型为“％s”的视图。"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid "Note Title..."
+msgstr "注意标题..."
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Notes"
+msgstr "笔记"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__note_color_pallet
+msgid "Notes Color Pallets"
+msgstr "注释 调色板"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__nunito_sans
+msgid "Nunito Sans"
+msgstr "努尼托·桑斯"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__open_sans
+msgid "Open Sans"
+msgstr "打开无字体"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__oswald
+msgid "Oswald"
+msgstr "奥斯瓦尔德"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "PDF file"
+msgstr "PDF文件"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "PWA Icon (192 x 192)"
+msgstr "PWA 图标 (192 x 192)"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "PWA Icon (512 x 512)"
+msgstr "PWA 图标（512 x 512）"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "PWA Name"
+msgstr "渐进式网页应用名称"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.act_open_pwa_shortcuts_view
+#: model:ir.model,name:spiffy_theme_backend.model_pwa_shortcuts
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__pwa_shortcuts_ids
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__pwa_shortcuts_ids
+#: model:ir.ui.menu,name:spiffy_theme_backend.pwa_shortcuts_view_tree_menuitem
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "PWA Shortcuts"
+msgstr "PWA 快捷方式"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.bizople_pwa_shortcuts_form_view
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.bizople_pwa_shortcuts_list_view
+msgid "PWA shortcuts"
+msgstr "PWA 快捷方式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_1
+msgid "Pallet 1"
+msgstr "托盘1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_2
+msgid "Pallet 2"
+msgstr "托盘2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_3
+msgid "Pallet 3"
+msgstr "托盘3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_4
+msgid "Pallet 4"
+msgstr "托盘4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_5
+msgid "Pallet 5"
+msgstr "托盘5"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_6
+msgid "Pallet 6"
+msgstr "托盘6"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__todo_list__note_color_pallet__pallet_7
+msgid "Pallet 7"
+msgstr "托盘7"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Pin Sidebar"
+msgstr "固定侧边栏"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__vertical_sidebar_pinned
+msgid "Pinned Sidebar"
+msgstr "固定侧边栏"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid "Pivot %(title)s (%(model_name)s)"
+msgstr "透视 %(title)s (%(model_name)s)"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__poppins
+msgid "Poppins"
+msgstr "波平斯"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Popup Animation"
+msgstr "弹出动画"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__prevent_auto_save
+msgid "Prevent Auto Save"
+msgstr "防止自动保存"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__prevent_auto_save
+msgid "Prevent Auto Save ?"
+msgstr "防止自动保存？"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/list_view_renderer.js:0
+msgid "Preview for this file type can not be shown"
+msgstr "无法显示此文件类型的预览"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Previous"
+msgstr "以前的"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_primary_bg_color
+msgid "Primary Background Color for dark"
+msgstr "深色的主要背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__light_primary_bg_color
+msgid "Primary Background Color for light"
+msgstr "灯光的主要背景颜色"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Primary Color"
+msgstr "原色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_primary_text_color
+msgid "Primary Text Color for dark"
+msgstr "深色的主要文本颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__light_primary_text_color
+msgid "Primary Text Color for light"
+msgstr "浅色的主要文本颜色"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Print"
+msgstr "打印"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.action_push_notification_menu
+#: model:ir.model,name:spiffy_theme_backend.model_push_notification_menu
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.push_notifcation_form_view
+msgid "Push Notification Menu"
+msgstr "推送通知菜单"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+msgid "Quick actions"
+msgstr "快速行动"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__radio__radio_style_1
+msgid "Radio Style 1"
+msgstr "无线电样式 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__radio__radio_style_2
+msgid "Radio Style 2"
+msgstr "无线电样式 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__radio__radio_style_3
+msgid "Radio Style 3"
+msgstr "无线电样式 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__radio__radio_style_4
+msgid "Radio Style 4"
+msgstr "无线电样式 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__radio
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Radio Styles"
+msgstr "无线电风格"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__raleway
+msgid "Raleway"
+msgstr "铁路道"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Records"
+msgstr "记录"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.pwa_offline_page
+msgid "Refresh"
+msgstr "刷新"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/bookmark.xml:0
+msgid "Remove"
+msgstr "消除"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/bookmark.xml:0
+msgid "Rename"
+msgstr "重命名"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/action_service.js:0
+msgid "Report"
+msgstr "报告"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Reset Zoom"
+msgstr "重置缩放"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__roboto
+msgid "Roboto"
+msgstr "罗博托"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Rotate"
+msgstr "旋转"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Rounded"
+msgstr "圆形"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__shape_style__biz_shape_rounded
+msgid "Rounded Shape"
+msgstr "圆形"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__theme_style__biz_theme_rounded
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Rounded Theme"
+msgstr "圆形主题"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__rubik
+msgid "Rubik"
+msgstr "魔方"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid "Save"
+msgstr "节省"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/split_view/split_view_form.xml:0
+msgid "Save manually"
+msgstr "手动保存"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Search"
+msgstr "搜索"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Search in Menu..."
+msgstr "在菜单中搜索..."
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/menu.xml:0
+msgid "Search.."
+msgstr "搜索.."
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_secondry_bg_color
+msgid "Secondry Background Color for dark"
+msgstr "深色的辅助背景颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__dark_secondry_text_color
+msgid "Secondry Text Color for dark"
+msgstr "深色的辅助文本颜色"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Separator 1"
+msgstr "分隔符 1"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Separator 2"
+msgstr "分隔符 2"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Separator 3"
+msgstr "分隔符 3"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Separator 4"
+msgstr "分隔符 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__separator__separator_style_1
+msgid "Separator Style 1"
+msgstr "分隔符样式 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__separator__separator_style_2
+msgid "Separator Style 2"
+msgstr "分隔符样式 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__separator__separator_style_3
+msgid "Separator Style 3"
+msgstr "分隔符样式 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__separator__separator_style_4
+msgid "Separator Style 4"
+msgstr "分隔符样式 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__separator
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Separator Styles"
+msgstr "分隔符样式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__sequence
+msgid "Sequence"
+msgstr "顺序"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Set Your Own Colors"
+msgstr "设置您自己的颜色"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid ""
+"Set Your Own Drawer\n"
+"\t\t\t\t\t\t\t\t\t\tColors"
+msgstr ""
+"设置您自己的抽屉\n"
+"\t\t\t\t\t\t\t\t\t\t颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__shape_style
+msgid "Shape Style"
+msgstr "形状风格"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__short_name
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__short_name_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__short_name_pwa
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Short Name"
+msgstr "简称"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__attachment_in_tree_view
+msgid "Show Attachement in tree view"
+msgstr "在树视图中显示附件"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Show Attachments in List View"
+msgstr "在列表视图中显示附件"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__show_filter_row
+msgid "Show Filter Row"
+msgstr "显示过滤器行"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Show Icon Pack"
+msgstr "显示图标包"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__bookmark_panel
+msgid "Show right bookmark panel"
+msgstr "显示右侧书签面板"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_spiffy_app_group
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__spiffy_app_group_id
+msgid "Spiffy App Group"
+msgstr "Spiffy 应用群组"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_window,name:spiffy_theme_backend.action_spiffy_app_group
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__spiffy_app_group
+#: model:ir.ui.menu,name:spiffy_theme_backend.spiffy_app_group
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.view_spiffy_app_group_list
+msgid "Spiffy App Groups"
+msgstr "Spiffy 应用群组"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__app_menu_list
+msgid "Spiffy App Groups List"
+msgstr "Spiffy 应用组列表"
+
+#. module: spiffy_theme_backend
+#: model:ir.ui.menu,name:spiffy_theme_backend.bizople_backend_theme_configuration_mainmenu
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.spiffy_configuration_res_user_view
+msgid "Spiffy Configuration"
+msgstr "Spiffy 配置"
+
+#. module: spiffy_theme_backend
+#: model:ir.actions.act_url,name:spiffy_theme_backend.action_spiffy_documentation
+#: model:ir.ui.menu,name:spiffy_theme_backend.spiffy_documentation_menu
+msgid "Spiffy Documentation"
+msgstr "Spiffy 文档"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Spiffy General Setting"
+msgstr "Spiffy 一般设定"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Spiffy Progressive Web Application (PWA)"
+msgstr "Spiffy 渐进式 Web 应用程序 (PWA)"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Square"
+msgstr "正方形"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__shape_style__biz_shape_square
+msgid "Square Shape"
+msgstr "方形"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__theme_style__biz_theme_square
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Square Theme"
+msgstr "方形主题"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__theme_style__biz_theme_standard
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Standard Theme"
+msgstr "标准主题"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Start url"
+msgstr "起始网址"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/action_service.js:0
+#: code:addons/spiffy_theme_backend/static/src/js/apps_menu.js:0
+msgid "Switch/Add Account"
+msgstr "切换/添加账户"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__tab__tab_style_1
+msgid "Tab Style 1"
+msgstr "选项卡样式 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__tab__tab_style_2
+msgid "Tab Style 2"
+msgstr "选项卡样式 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__tab__tab_style_3
+msgid "Tab Style 3"
+msgstr "选项卡样式 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__tab__tab_style_4
+msgid "Tab Style 4"
+msgstr "选项卡样式 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__tab
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Tab Styles"
+msgstr "选项卡样式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__tajawal
+msgid "Tajawal"
+msgstr "塔贾瓦尔"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid "Take a Note..."
+msgstr "请注意..."
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Text Color"
+msgstr "文字颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__theme_color_pwa
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__theme_color_pwa
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.res_config_settings_backend_config
+msgid "Theme Color"
+msgstr "主题颜色"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Theme Setting"
+msgstr "主题设定"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Theme Settings"
+msgstr "主题设置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__theme_style
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "Theme Style"
+msgstr "主题风格"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+msgid "Themes Configuration"
+msgstr "主题配置"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid ""
+"There are too many rows (%(count)s rows, limit: %(limit)s) to export as "
+"Excel 2007-2013 (.xlsx) format. Consider splitting the export."
+msgstr ""
+"导出的行数过多（%(count)s 行，限制：%(limit)s"
+"Excel 2007-2013 (.xlsx) 格式。请考虑拆分导出。"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "This is a preview of your selected font."
+msgstr "这是您选择的字体的预览。"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__title
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__name
+msgid "Title"
+msgstr "标题"
+
+#. module: spiffy_theme_backend
+#: model:ir.model,name:spiffy_theme_backend.model_todo_list
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__todo_list_ids
+msgid "To Do List"
+msgstr "待办事项清单"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/view_button_icons.xml:0
+msgid "Today"
+msgstr "今天"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+msgid "Toggle Filter Row"
+msgstr "切换过滤器行"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.constraint,message:spiffy_theme_backend.constraint_mail_firebase_token_not_false
+msgid "Token must be not null!"
+msgstr "令牌不能为空！"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.constraint,message:spiffy_theme_backend.constraint_mail_firebase_token
+msgid "Token must be unique per user!"
+msgstr "每个用户的令牌必须是唯一的！"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_users__tool_color_id
+msgid "Tool Color"
+msgstr "工具颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_company__spiffy_toobar_color
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_res_config_settings__spiffy_toobar_color
+msgid "Toolbar Color"
+msgstr "工具栏颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_position__top_menu_horizontal
+msgid "Top Menu Horizontal"
+msgstr "顶部菜单水平"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__top_menu_position
+msgid "Top Menu Position"
+msgstr "顶部菜单位置"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_position__top_menu_vertical
+msgid "Top Menu Vertical"
+msgstr "垂直顶部菜单"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_bg_vertical_mini_2__top_menu_vertical_bg1
+msgid "Top Menu Vertical BG 1"
+msgstr "顶部菜单垂直 BG 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_bg_vertical_mini_2__top_menu_vertical_bg2
+msgid "Top Menu Vertical BG 2"
+msgstr "顶部菜单垂直 BG 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_bg_vertical_mini_2__top_menu_vertical_bg3
+msgid "Top Menu Vertical BG 3"
+msgstr "顶部菜单垂直 BG 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__top_menu_bg_vertical_mini_2
+msgid "Top Menu Vertical Backgoround Image"
+msgstr "顶部菜单垂直背景图像"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_position__top_menu_vertical_mini
+msgid "Top Menu Vertical Mini"
+msgstr "顶部菜单垂直迷你"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__top_menu_position__top_menu_vertical_mini_2
+msgid "Top Menu Vertical Mini 2"
+msgstr "顶部菜单垂直迷你 2"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/web_inherit.xml:0
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__tree_form_split_view
+msgid "Tree Form Split View"
+msgstr "树形分割视图"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/list_renderer.xml:0
+msgid "Type here..."
+msgstr "在此输入..."
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__url
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__url
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_google_font_family__url
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_pwa_shortcuts__url
+msgid "URL"
+msgstr "网址"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/split_view/split_view_form.xml:0
+msgid "Unable to save. Correct the issue or discard changes"
+msgstr "无法保存。请更正问题或放弃更改"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.to_do_list_template
+msgid "Update"
+msgstr "更新"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__use_custom_colors
+msgid "Use Custom Colors"
+msgstr "使用自定义颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__use_custom_drawer_color
+msgid "Use Custom Drawer Colors"
+msgstr "使用自定义抽屉颜色"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_spiffy_app_group__use_group_icon
+msgid "Use Group Icon"
+msgstr "使用组图标"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_ir_ui_menu__use_icon
+msgid "Use Icon"
+msgstr "使用图标"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/base.xml:0
+#: model:ir.model,name:spiffy_theme_backend.model_res_users
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__user_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_bookmark_link__user_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_favorite_apps__user_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_mail_firebase__user_id
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__user_id
+msgid "User"
+msgstr "用户"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__res_company__backend_theme_level__user_level
+msgid "User Level"
+msgstr "用户级别"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__font_family__varela_round
+msgid "Varela Round"
+msgstr "巴雷拉圆"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Video"
+msgstr "视频"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/xml/list_renderer.xml:0
+msgid "View Button"
+msgstr "查看按钮"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Viewer"
+msgstr "观众"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_biz_multi_tab__menu_xmlid
+msgid "XML ID Name"
+msgstr "XML ID 名称"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid "You are not allowed to upload an attachment here."
+msgstr "您无权在此处上传附件。"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/controllers/main.py:0
+msgid "You are not allowed to upload attachments on this channel."
+msgstr "您无权在此频道上传附件。"
+
+#. module: spiffy_theme_backend
+#. odoo-python
+#: code:addons/spiffy_theme_backend/models/mail_channel.py:0
+msgid ""
+"You have to install \"google_auth>=1.18.0\" to be able to send push "
+"notifications."
+msgstr ""
+" 您必须安装“google_auth>=1.18.0”才能发送推送 "
+" 通知 "
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.pwa_offline_page
+msgid "You're Offline"
+msgstr "您处于离线状态"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Zoom In"
+msgstr "放大"
+
+#. module: spiffy_theme_backend
+#. odoo-javascript
+#: code:addons/spiffy_theme_backend/static/src/js/widgets/spiffyDocumentViewer.xml:0
+msgid "Zoom Out"
+msgstr "缩小"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "https://fonts.google.com/"
+msgstr "https://fonts.google.com/"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "https://fonts.google.com/specimen/Lato"
+msgstr "https://fonts.google.com/specimen/Lato"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__popup__popup_style_1
+msgid "popup Style 1"
+msgstr "弹出样式 1"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__popup__popup_style_2
+msgid "popup Style 2"
+msgstr "弹出样式 2"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__popup__popup_style_3
+msgid "popup Style 3"
+msgstr "弹出样式 3"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields.selection,name:spiffy_theme_backend.selection__backend_config__popup__popup_style_4
+msgid "popup Style 4"
+msgstr "弹出样式 4"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_backend_config__popup
+msgid "popup Styles"
+msgstr "弹出样式"
+
+#. module: spiffy_theme_backend
+#: model:ir.model.fields,field_description:spiffy_theme_backend.field_todo_list__sequence
+msgid "sequence"
+msgstr "顺序"
+
+#. module: spiffy_theme_backend
+#: model_terms:ir.ui.view,arch_db:spiffy_theme_backend.template_backend_config_data
+msgid "your image"
+msgstr "你的形象"
